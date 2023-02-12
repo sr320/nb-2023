@@ -1,0 +1,105 @@
+---
+title: "01-tt"
+output: html_document
+date: "2023-02-07"
+---
+
+Step 1: Visit the TidyTuesday website and check out the resources and podcast episodes: https://www.tidytuesday.com/
+
+Step 2: Go to the TIdyTuesday GitHub repo and read the README: https://github.com/rfordatascience/tidytuesday
+
+Step 3: Go to the 2023 bird watching dataset and read the README and the data dictionary information: https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-10/readme.md
+
+Step 4: Download the data set and subset using this code in R:
+
+# Get the Data
+
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+```{r}
+install.packages("tidytuesdayR")
+```
+
+
+
+
+# Either ISO-8601 date or year/week works!
+
+tuesdata <- tidytuesdayR::tt_load('2023-01-10')
+tuesdata <- tidytuesdayR::tt_load(2023, week = 02)
+
+feederwatch <- tuesdata$feederwatch
+
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2023, week = 02)
+
+feederwatch <- tuesdata$feederwatch
+```
+
+
+# Or read in the data manually
+
+feederwatch <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_2021_public.csv')
+site_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_count_site_data_public_2021.csv')
+
+
+```{r}
+feederwatch <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_2021_public.csv')
+site_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_count_site_data_public_2021.csv')
+```
+
+
+
+# Download the raw data.
+
+PFW_2021_public <- readr::read_csv("https://clo-pfw-prod.s3.us-west-2.amazonaws.com/data/PFW_2021_public.csv")
+dplyr::glimpse(PFW_2021_public)
+
+
+```{r}
+PFW_2021_public <- readr::read_csv("https://clo-pfw-prod.s3.us-west-2.amazonaws.com/data/PFW_2021_public.csv")
+dplyr::glimpse(PFW_2021_public)
+```
+
+
+
+
+# There are almost three million rows! The file is too big for github, let's
+# subsample.
+
+set.seed(424242)
+PFW_2021_public_subset <- dplyr::slice_sample(PFW_2021_public, n = 1e5)
+
+readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10", "PFW_2021_public.csv"))
+
+
+```{r}
+set.seed(424242)
+PFW_2021_public_subset <- dplyr::slice_sample(PFW_2021_public, n = 1e5)
+
+readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10", "PFW_2021_public.csv"))
+```
+
+
+
+
+
+
+
+Step 5: Now that you know what types of data are available, write down 2-3 questions you want to answer using this dataset (e.g., how does the number of birds sited relate to the habitat type?)
+
+
+
+
+
+Step 6: Manipulate the data (make it tidy!) and make some fun plots! Post your favorite plot to this discussion thread. In lab meeting we will go around the room and talk about what questions we had, how we manipulated the data and any issues we ran into, and the plots we 
+
+
+
+
+
+Step 7: Keep up with Tidy Tuesday in the future if you want!
+
