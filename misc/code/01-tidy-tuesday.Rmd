@@ -19,7 +19,7 @@ Step 4: Download the data set and subset using this code in R:
 # This loads the readme and all the datasets for the week of interest
 
 ```{r}
-install.packages("tidytuesdayR")
+#install.packages("tidytuesdayR")
 ```
 
 
@@ -34,9 +34,9 @@ feederwatch <- tuesdata$feederwatch
 
 
 ```{r}
-tuesdata <- tidytuesdayR::tt_load(2023, week = 02)
+#tuesdata <- tidytuesdayR::tt_load(2023, week = 02)
 
-feederwatch <- tuesdata$feederwatch
+#feederwatch <- tuesdata$feederwatch
 ```
 
 
@@ -80,7 +80,7 @@ readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10"
 set.seed(424242)
 PFW_2021_public_subset <- dplyr::slice_sample(PFW_2021_public, n = 1e5)
 
-readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10", "PFW_2021_public.csv"))
+readr::write_csv(PFW_2021_public_subset, here::here("misc", "data", "PFW_2021_public.csv"))
 ```
 
 
@@ -92,12 +92,59 @@ readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10"
 Step 5: Now that you know what types of data are available, write down 2-3 questions you want to answer using this dataset (e.g., how does the number of birds sited relate to the habitat type?)
 
 
-
+how many birds based on place
+date
+type of bird
 
 
 Step 6: Manipulate the data (make it tidy!) and make some fun plots! Post your favorite plot to this discussion thread. In lab meeting we will go around the room and talk about what questions we had, how we manipulated the data and any issues we ran into, and the plots we 
 
+```{r}
+library(tidyverse)
+```
 
+
+
+```{r}
+PFW_2021_public_subset %>%
+  group_by(subnational1_code, Month, species_code) %>%
+  summarize(total_count = sum(how_many, na.rm=TRUE)) %>%
+  filter(total_count > 500)
+```
+
+
+```{r}
+df <- PFW_2021_public_subset %>%
+  group_by(subnational1_code, Month, species_code) %>%
+  summarize(total_count = sum(how_many, na.rm=TRUE)) %>%
+  filter(total_count > 500)
+```
+
+```{r}
+ggplot(df, aes(x = total_count)) +
+  geom_histogram() +
+  facet_wrap(~species_code)
+```
+
+```{r}
+ggplot(df, aes(x = total_count)) +
+  geom_bar() +
+  facet_wrap(~Month)
+```
+
+
+```{r}
+ggplot(df, aes(x = total_count)) +
+  geom_boxplot() +
+  facet_wrap(~subnational1_code)
+```
+
+
+
+```{r}
+ggplot(df, aes(x = total_count)) +
+  geom_boxplot()
+```
 
 
 
