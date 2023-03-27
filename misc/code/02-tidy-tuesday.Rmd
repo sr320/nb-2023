@@ -13,7 +13,7 @@ library(kableExtra)
 languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-03-21/languages.csv')
 ```
 
-```{r}
+```
 kbl(
   head(languages)
 )
@@ -33,5 +33,71 @@ ggplot(data = languages, mapping = aes(x = github_repo_subscribers, y = github_r
   geom_point(color = "blue") +
   labs(x = "subscribers", y = "stars")
 ```
+```{r}
+ggplot(languages, aes(x = appeared, y = number_of_users)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
 
+
+```{r}
+ggplot(languages, aes(x = github_repo_forks, y = language_rank)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+```{r}
+ggplot(languages, aes(x = appeared, y = last_activity)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+```{r}
+df <-languages %>% 
+  filter(appeared > 1900)
+```
+
+
+```{r}
+ggplot(df, aes(x = appeared, y = last_activity)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+
+```{r}
+p<- df %>% 
+  drop_na(is_open_source) %>%
+  ggplot(aes(x=is_open_source, y=number_of_users)) +
+  geom_bar(stat="identity")
+p
+   
+```
+
+```{r}
+p<- df %>% 
+  drop_na(is_open_source) %>%
+  ggplot(aes(x=is_open_source, y=number_of_jobs)) +
+  geom_bar(stat="identity")
+p
+   
+```
+
+git rep vs not githhub repo. ??
+
+
+```
+df %>%
+  mutate(GH = ifelse(github_repo != NA, 1))
+```
+
+
+
+
+
+```{r}
+ggplot(languages, aes(x = github_repo_forks)) +
+  geom_histogram()
+```
 
