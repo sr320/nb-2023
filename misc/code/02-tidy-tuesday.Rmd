@@ -6,10 +6,32 @@ date: "2023-03-27"
 
 ```{r}
 library(tidyverse)
-
+library(kableExtra)
 ```
 
 ```{r}
 languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-03-21/languages.csv')
 ```
+
+```{r}
+kbl(
+  head(languages)
+)
+```
+
+```{r}
+head(languages)
+```
+
+```{r}
+str(languages)
+```
+
+
+```{r}
+ggplot(data = languages, mapping = aes(x = github_repo_subscribers, y = github_repo_stars)) +
+  geom_point(color = "blue") +
+  labs(x = "subscribers", y = "stars")
+```
+
 
