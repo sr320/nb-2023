@@ -1,0 +1,15 @@
+---
+title: "02-tidy-tuesday"
+output: md_document
+date: "2023-03-27"
+---
+
+```{r}
+library(tidyverse)
+
+```
+
+```{r}
+languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-03-21/languages.csv')
+```
+
