@@ -64,7 +64,7 @@ ggplot(df, aes(x = appeared, y = last_activity)) +
   geom_smooth(method = "lm")
 ```
 
-
+library(gptstudio)
 
 ```{r}
 p<- df %>% 

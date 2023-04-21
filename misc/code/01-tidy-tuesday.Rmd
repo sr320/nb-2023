@@ -4,11 +4,14 @@ output: html_document
 date: "2023-02-07"
 ---
 
-Step 1: Visit the TidyTuesday website and check out the resources and podcast episodes: https://www.tidytuesday.com/
+Step 1: Visit the TidyTuesday website and check out the resources and podcast episodes.
+https://www.tidytuesday.com/
 
-Step 2: Go to the TIdyTuesday GitHub repo and read the README: https://github.com/rfordatascience/tidytuesday
+Step 2: Go to the TidyTuesday GitHub repo and read the README.
+https://github.com/rfordatascience/tidytuesday
 
-Step 3: Go to the 2023 bird watching dataset and read the README and the data dictionary information: https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-10/readme.md
+Step 3: Go to the 2023 bird watching dataset and read the README and the data dictionary information.
+https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-10/readme.md
 
 Step 4: Download the data set and subset using this code in R:
 
@@ -47,8 +50,16 @@ site_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/
 
 
 ```{r}
+#read in the data
 feederwatch <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_2021_public.csv')
 site_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-10/PFW_count_site_data_public_2021.csv')
+
+#combine the data
+
+#filter the data
+
+#plot the data
+
 ```
 
 
@@ -78,7 +89,148 @@ readr::write_csv(PFW_2021_public_subset, here::here("data", "2023", "2023-01-10"
 
 ```{r}
 set.seed(424242)
-PFW_2021_public_subset <- dplyr::slice_sample(PFW_2021_public, n = 1e5)
+PFW_2021_public_subset <- dplyr::slice_sample(PFW_2021_public, n = 1e5)# read in the data
+languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-03-21/languages.csv')
+
+# create a new variable that is the number of speakers in millions
+languages$speakers_millions <- languages$speakers / 1000000
+
+# create a new variable that is the number of speakers in billions
+languages$speakers_billions <- languages$speakers / 1000000000
+
+# create a new variable that is the number of speakers in trillions
+languages$speakers_trillions <- languages$speakers / 1000000000000
+
+# create a new variable that is the number of speakers in quadrillions
+languages$speakers_quadrillions <- languages$speakers / 1000000000000000
+
+# create a new variable that is the number of speakers in quintillions
+languages$speakers_quintillions <- languages$speakers / 1000000000000000000
+
+# create a new variable that is the number of speakers in sextillions
+languages$speakers_sextillions <- languages$speakers / 1000000000000000000000
+
+# create a new variable that is the number of speakers in septillions
+languages$speakers_septillions <- languages$speakers / 1000000000000000000000000
+
+# create a new variable that is the number of speakers in octillions
+languages$speakers_octillions <- languages$speakers / 1000000000000000000000000000
+
+# create a new variable that is the number of speakers in nonillions
+languages$speakers_nonillions <- languages$speakers / 1000000000000000000000000000000
+
+# create a new variable that is the number of speakers in decillions
+languages$speakers_decillions <- languages$speakers / 1000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in undecillions
+languages$speakers_undecillions <- languages$speakers / 1000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in duodecillions
+languages$speakers_duodecillions <- languages$speakers / 1000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in tredecillions
+languages$speakers_tredecillions <- languages$speakers / 1000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quattuordecillions
+languages$speakers_quattuordecillions <- languages$speakers / 1000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quindecillions
+languages$speakers_quindecillions <- languages$speakers / 1000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in sexdecillions
+languages$speakers_sexdecillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in septendecillions
+languages$speakers_septendecillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in octodecillions
+languages$speakers_octodecillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in novemdecillions
+languages$speakers_novemdecillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in vigintillions
+languages$speakers_vigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in unvigintillions
+languages$speakers_unvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in duovigintillions
+languages$speakers_duovigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in trevigintillions
+languages$speakers_trevigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quattuorvigintillions
+languages$speakers_quattuorvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quinvigintillions
+languages$speakers_quinvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in sexvigintillions
+languages$speakers_sexvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in septenvigintillions
+languages$speakers_septenvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in octovigintillions
+languages$speakers_octovigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in novemvigintillions
+languages$speakers_novemvigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in trigintillions
+languages$speakers_trigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in untrigintillions
+languages$speakers_untrigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in duotrigintillions
+languages$speakers_duotrigintillions <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in googol
+languages$speakers_googol <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in googolplex
+languages$speakers_googolplex <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in centillion
+languages$speakers_centillion <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in duocentillion
+languages$speakers_duocentillion <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in trecentillion
+languages$speakers_trecentillion <- languages$speakers / 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quadringentillion
+languages$speakers_quadringentillion <- languages$speakers / 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in quingentillion
+languages$speakers_quingentillion <- languages$speakers / 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in sescentillion
+languages$speakers_sescentillion <- languages$speakers / 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in septingentillion
+languages$speakers_septingentillion <- languages$speakers / 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in octingentillion
+languages$speakers_octingentillion <- languages$speakers / 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in noningentillion
+languages$speakers_noningentillion <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in millinillion
+languages$speakers_millinillion <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in centillion
+languages$speakers_centillion <- languages$speakers / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# create a new variable that is the number of speakers in duocentillion
+languages$speakers_duocentillion <- languages$speakers / 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
 
 readr::write_csv(PFW_2021_public_subset, here::here("misc", "data", "PFW_2021_public.csv"))
 ```
