@@ -1,0 +1,12 @@
+INFO [2023-04-21 13:41:13] $x
+INFO [2023-04-21 13:41:13] project_themes
+INFO [2023-04-21 13:41:13] 
+INFO [2023-04-21 13:41:13] $category.names
+INFO [2023-04-21 13:41:13] c("Project 1", "Project 2", "Project 3", "Project 4")
+INFO [2023-04-21 13:41:13] 
+INFO [2023-04-21 13:41:13] $filename
+INFO [2023-04-21 13:41:13] NULL
+INFO [2023-04-21 13:41:13] 
+INFO [2023-04-21 13:41:13] $output
+INFO [2023-04-21 13:41:13] [1] TRUE
+INFO [2023-04-21 13:41:13] 

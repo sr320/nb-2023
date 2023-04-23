@@ -1,0 +1,88 @@
+---
+title: "paper database"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+
+
+```
+
+```{r}
+papers <- c("Katherine Silliman, Laura H Spencer, Samuel J White, Steven B Roberts (2023) Epigenetic and genetic population structure is coupled in a marine invertebrate Genome Biology and Evolution, 2023;, evad013 doi:10.1093/gbe/evad013",
+            "Dang, X., Lim, Y.-K., Li, Y., Roberts, S. B., Li, L., & Thiyagarajan, V. (2022). Epigenetic-associated phenotypic plasticity of the ocean acidification-acclimated edible oyster in the mariculture environment Molecular Ecology, 00, 1– 16. doi:10.1111/mec.16751")
+
+```
+
+```{r}
+authors <- str_extract(papers, ".*(?=\\s\\(\\d{4}\\))")
+years <- str_extract(papers, "(?<=\\()\\d{4}(?=\\))")
+titles <- str_extract(papers, "(?<=\\d{4}\\)\\s).+?(?=\\s[A-Za-z]+,)")
+journals <- str_extract(papers, "(?<=[A-Za-z]\\s)\\w+[^,]+(?=,\\s\\d{2,4})")
+volume_and_pages <- str_extract(papers, "\\d{2,4},\\s\\d{1,4}(\\s–\\s\\d{1,4})?")
+dois <- str_extract(papers, "doi:\\S+")
+
+```
+
+```{r}
+df <- data.frame(Author = authors,
+                 Year = years,
+                 Title = titles,
+                 Journal = journals,
+                 Volume_and_Pages = volume_and_pages,
+                 DOI = dois,
+                 stringsAsFactors = FALSE)
+
+```
+
+```{r}
+papers <- c("Katherine Silliman, Laura H Spencer, Samuel J White, Steven B Roberts (2023) Epigenetic and genetic population structure is coupled in a marine invertebrate Genome Biology and Evolution, 2023;, evad013 doi:10.1093/gbe/evad013",
+            "Dang, X., Lim, Y.-K., Li, Y., Roberts, S. B., Li, L., & Thiyagarajan, V. (2022). Epigenetic-associated phenotypic plasticity of the ocean acidification-acclimated edible oyster in the mariculture environment Molecular Ecology, 00, 1– 16. doi:10.1111/mec.16751",
+            "Crandall G, Elliott Thompson R, Eudeline B, Vadopalas B, Timmins-Schiffman E, Roberts S. (2022) Proteomic response of early juvenile Pacific oysters (Crassostrea gigas) to temperature PeerJ 10:e14158 doi:10.7717/peerj.14158",
+            "Hollie M. Putnam, Shelly A. Trigg, Samuel J. White, Laura H. Spencer, Brent Vadopalas, Aparna Natarajan, Jonathan Hetzel, Erich Jaeger, Jonathan Soohoo, Cristian Gallardo-Escárate, Frederick W. Goetz, Steven B. Roberts (2022) Dynamic DNA methylation contributes to carryover effects and beneficial acclimatization in geoduck clams. bioRxiv https://doi.org/10.1101/2022.06.24.497506",
+            "Yaamini Venkataraman, Samuel J White and Steven Roberts (2022) Differential DNA methylation in Pacific oyster reproductive tissue in response to ocean acidification. BMC Genomics 23, 556 doi:10.1186/s12864-022-08781-5")
+
+```
+
+```{r}
+authors <- str_extract(papers, ".*(?=\\s\\(\\d{4}\\))")
+years <- str_extract(papers, "(?<=\\()\\d{4}(?=\\))")
+titles <- str_extract(papers, "(?<=\\d{4}\\)\\s).+?(?=\\s[A-Za-z]+(\\s|,))")
+journals <- str_extract(papers, "(?<=\\s)[A-Za-z]+[\\w\\s]*?(?=,\\s\\d{2,4})")
+volume_and_pages <- str_extract(papers, "\\d{2,4},\\s\\d{1,4}(\\s–\\s\\d{1,4}|\\w+)?")
+dois <- str_extract(papers, "doi:\\S+|https://doi.org/\\S+")
+
+```
+
+```{r}
+df <- data.frame(Author = authors,
+                 Year = years,
+                 Title = titles,
+                 Journal = journals,
+                 Volume_and_Pages = volume_and_pages,
+                 DOI = dois,
+                 stringsAsFactors = FALSE)
+
+```
+
+```{r}
+if (!require(stringr)) {
+  install.packages("stringr")
+  library(stringr)
+}
+
+# The list of papers as a string
+papers <- "Katherine Silliman, Laura H Spencer, Samuel J White, Steven B Roberts (2023) Epigenetic and genetic population structure is coupled in a marine invertebrate Genome Biology and Evolution, 2023;, evad013 doi:10.1093/gbe/evad013
+
+Dang, X., Lim, Y.-K., Li, Y., Roberts, S. B., Li, L., & Thiyagarajan, V. (2022). Epigenetic-associated phenotypic plasticity of the ocean acidification-acclimated edible oyster in the mariculture environment Molecular Ecology, 00, 1– 16. doi:10.1111/mec.16751
+
+Crandall G, Elliott Thompson R, Eudeline B, Vadopalas B, Timmins-Schiffman E, Roberts S. (2022) Proteomic response of early juvenile Pacific oysters (Crassostrea gigas) to temperature PeerJ 10:e14158 doi:10.7717/peerj.14158"
+
+# Extract DOIs using a regular expression
+dois <- str_extract_all(papers, "doi:[\\d.]+\\/\\S+")
+
+# Print the extracted DOIs
+print(unlist(dois))
+```

@@ -1,24 +1,145 @@
 ---
 title: "Lab Update"
-format: revealjs
+format:
+  revealjs: 
+    theme: beige
 editor: visual
 ---
 
-## Quarto
+## Outline
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+-   Recently ~~Completed~~ Projects (7)
 
-## Bullets
+-   Current Projects (8)
 
-When you click the **Render** button a document will be generated that includes:
+-   More Current Projects (3)
 
--   Content authored with markdown
--   Output from executable code
+## Chat GPT summary
 
-## Code
+This lab group focuses on understanding and enhancing the resilience and sustainability of shellfish aquaculture in the face of environmental challenges. Their research involves investigating the genetic, physiological, and epigenetic factors influencing shellfish response to stressors like climate change, ocean acidification, and disease. The group also aims to develop innovative strategies to mitigate these stressors, optimize aquaculture practices, and improve overall shellfish production.
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+# Recently ~~Completed~~ Projects
 
-```{r}
-1 + 1
-```
+## Recently ~~Completed~~ Projects
+
+1.  Development of *environmental conditioning practices* to decrease impacts of climate change on shellfish aquaculture (FFAR)
+
+2.  Enhancing sustainability of shellfish aquaculture through *streamlined maturation control* (WSG)
+
+3.  Identifying *genomic architecture* features that contribute to critical phenotypes in shellfish (USDA)
+
+4.  Does *ocean acidification* induce a methylation response that affects the fitness of the next generation in oysters? (NSF CEABIGR)
+
+## Recently ~~Completed~~ Projects
+
+5.  Elucidating the physiological and epigenetic response of *tetraploid and triploid* Pacific Oysters (Crassostrea gigas) to environmental stressors (NSG)
+
+6.  Effects of temperature change and Hematodinium sp. infection (Bitter Crab Disease) on *Tanner crab* (Chionoecetes bairdi) (NPRB)
+
+7.  *CaligusLIFE*: Scientific research of excellence towards understanding sea lice biology and its application in control strategies for the salmon industry (Chlile)
+
+## 1. environmental conditioning practices
+
+1.  Comparative qualitative / quantitative gonad histology (Shelly)
+
+2.  Transgenerational phenotypes.. (data in hand - open)
+
+## 2. streamlined maturation control
+
+1.  Characterize genomic processes involved in germ cell specification in Pacific oysters
+
+-   Collect transcriptomic data from individual cells from a time series of developing Pacific oyster embryos (year 1)
+-   Analyze expression profiles of bioinformatically ordered cells to determine the temporal succession of genes involved in germ cell development (year 1 & 2)
+
+2.  Optimize delivery techniques of custom gene-regulating molecules (CRISPR-Cas9 constructs or morpholinos) to oyster embryos (year 2)
+
+## 3. genomic architecture
+
+1)  identify genomic architecture variation contributing to desired phenotypes in shellfish and
+2)  develop a community platform to share data and analytical approaches.
+
+## 3. genomic architecture
+
+Status - WGS sequence data in hand.
+
+> ribosomal DNA (rDNA) copy number variation. This genomic feature has received limited attention, however rDNA encodes for ribosome biogenesis, one of the most central processes in cellular biology from a functional perspective because of its close connections to growth, development, and metabolism. rDNA is an emerging genomic determinant of phenotype, with respect to both sequence and copy number variation
+
+## 4. ocean acidification
+
+-   Paper looking at RNA-seq and methyalation
+
+## 5. tetraploid and triploid
+
+-   Hawaii paper - gonad methylation
+
+-   triploid stress methylation
+
+## 6. tanner crabs
+
+-   gene expression paper
+
+-   modelling paper
+
+-   lots of data (catch and genomic) and historic samples
+
+## 7. CaligusLIFE
+
+-   salmon skin methylation - salinity and temperature
+
+# Current Projects
+
+## Current Projects
+
+1.  Leveraging transformative 'omics technologies to alleviate barriers to US shellfish production (NOPP)
+2.  URoL : Epigenetics 2: Predicting phenotypic and eco-evolutionary consequences of environmental-energetic-epigenetic linkages (E5)
+3.  Applying cutting-edge technology for reproductive control in emerging bivalve species (PSMFC)
+
+## Current Projects
+
+4.  Readying sustainable aquaculture for a changing ocean: uncovering the mechanisms associated with intergenerational carryover effects to enhance bivalve resilience to acidification (WSG)
+5.  Improved Climate Resilience In Oysters Through Optimization Of Hatchery-Based Environmental Conditioning Practices (USDA)
+6.  Gene activity and genetic selection in Pacific cod reared under thermal stress (PSMFC)
+
+## Current Projects
+
+7.  Development of genomic markers for environmental resilience in mussels (PSMFC)
+
+8.  Oyster adaptation to climate change via transgenerational plasticity (Australia)
+
+## More Projects\*
+
+1.  Using next-generation sequencing techniques to assess adaptive capacity and illuminate mechanisms underlying the effects of high pCO~2~ on Alaskan crab and fish species (NOAA-Spencer)
+2.  Development of innovative approaches to support sustainable aquaculture and understand the effects of ocean acidification on marine species (NOAA-Vernon)
+
+## More Projects\*
+
+3.  Increasing Environmental Connection, Literacy and Engagement through an Art + Science Collaborative Education Practice (Earthlab)
+4.  Salmon behavior gene expression
+
+# Service Reports
+
+## scite\_
+
+![](img/scite.png)
+
+## scite\_
+
+![](img/scite02.png)
+
+## ChatGPT
+
+Providing list of publication since 2020 I asked what are we doing and what direction we should go in next 5 years...
+
+This lab group primarily studies the molecular and physiological responses of marine invertebrates to environmental stressors such as ocean acidification, temperature changes, and water quality. They employ techniques like DNA methylation profiling, gene expression analysis, and proteomic profiling to investigate how these stressors affect various aspects of invertebrate biology, including growth, reproduction, and acclimatization. The lab has focused on species like oysters, geoduck clams, and tanner crabs.
+
+## ChatGPT
+
+Based on their research, here are four new areas to pursue in the next five years:
+
+1.  Investigate the potential of epigenetic modifications as indicators for environmental stress in other marine invertebrate species, expanding their research to include a wider range of organisms and ecosystems.
+
+2.  Assess the long-term consequences of environmental stressors on marine invertebrate populations, with a particular focus on how these stressors may impact genetic diversity, population connectivity, and resilience to future environmental changes.
+
+3.  Examine the potential for assisted evolution or selective breeding in marine invertebrates to enhance their resilience to climate change and other environmental stressors, and evaluate the feasibility of applying these techniques in conservation and aquaculture settings.
+
+4.  Evaluate the microbiomes of marine invertebrates in relation to environmental stressors, exploring how shifts in microbial community composition and function may influence the host's response to stress and overall health.

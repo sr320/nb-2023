@@ -1,0 +1,109 @@
+---
+title: "04-venn"
+format: html
+editor: visual
+---
+
+```{r}
+# Install and load the necessary packages
+#install.packages("VennDiagram")
+library(VennDiagram)
+library(grid)
+
+# Create a list containing 20 themes or keywords for each project
+project_themes <- list(
+  Project1 = c("marine", "corals", "epigenetics", "environment", "stressors", "inheritance", "reef_building", "physiology", "ecology", "evolution", "symbiosis", "education", "energetics", "metabolic", "phenotype", "E5_platform", "STEM", "open_science", "quantitative_approaches", "research_reproducibility"),
+  Project2 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "aquaculture", "DNA_methylation", "Crassostrea_virginica", "ocean_acidification", "intergenerational_response", "genomics", "adaptation", "bioinformatics", "biogeochemistry", "E2O", "girls_in_STEM", "low_income_schools", "open_science", "reproducibility"),
+  Project3 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "climate_change", "physiology", "Crassostrea_gigas", "tetraploid", "triploid", "temperature", "salinity", "low_pH", "oxygen_consumption", "shell_morphology", "survival_rates", "proteomics", "DNA_methylation", "environmental_conditions"),
+  Project4 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "genomics", "Olympia_oyster", "Puget_Sound", "restoration", "protection", "environmental_change", "ecological_interactions", "population_structure", "genetic_variation", "RAD-Seq", "BS-Seq", "web-based_platform", "discovery", "collaboration")
+)
+
+# Generate the Venn diagram to visualize the relationships
+venn.plot <- venn.diagram(
+  x = project_themes,
+  category.names = c("Project 1", "Project 2", "Project 3", "Project 4"),
+  filename = NULL,
+  output = TRUE
+)
+
+grid.draw(venn.plot)
+
+
+```
+
+```{r}
+# Install and load the necessary packages
+#install.packages("eulerr")
+library(eulerr)
+
+# Create a data frame containing 20 themes or keywords for each project
+project_themes <- data.frame(
+  themes = c(rep("Project1", 20), rep("Project2", 20), rep("Project3", 20), rep("Project4", 20)),
+  keywords = c("marine", "corals", "epigenetics", "environment", "stressors", "inheritance", "reef_building", "physiology", "ecology", "evolution", "symbiosis", "education", "energetics", "metabolic", "phenotype", "E5_platform", "STEM", "open_science", "quantitative_approaches", "research_reproducibility",
+               "marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "aquaculture", "DNA_methylation", "Crassostrea_virginica", "ocean_acidification", "intergenerational_response", "genomics", "adaptation", "bioinformatics", "biogeochemistry", "E2O", "girls_in_STEM", "low_income_schools", "open_science", "reproducibility",
+               "marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "climate_change", "physiology", "Crassostrea_gigas", "tetraploid", "triploid", "temperature", "salinity", "low_pH", "oxygen_consumption", "shell_morphology", "survival_rates", "proteomics", "DNA_methylation", "environmental_conditions",
+               "marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "genomics", "Olympia_oyster", "Puget_Sound", "restoration", "protection", "environmental_change", "ecological_interactions", "population_structure", "genetic_variation", "RAD-Seq", "BS-Seq", "web-based_platform", "discovery", "collaboration")
+)
+
+# Create an euler diagram
+project_euler <- euler(project_themes, input = "binary")
+
+# Plot the diagram
+plot(project_euler, quantities = TRUE)
+
+```
+
+```{r}
+# Install and load the necessary packages
+install.packages("venn")
+library(venn)
+
+# Create a list containing 20 themes or keywords for each project
+project_themes <- list(
+  Project1 = c("marine", "corals", "epigenetics", "environment", "stressors", "inheritance", "reef_building", "physiology", "ecology", "evolution", "symbiosis", "education", "energetics", "metabolic", "phenotype", "E5_platform", "STEM", "open_science", "quantitative_approaches", "research_reproducibility"),
+  Project2 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "aquaculture", "DNA_methylation", "Crassostrea_virginica", "ocean_acidification", "intergenerational_response", "genomics", "adaptation", "bioinformatics", "biogeochemistry", "E2O", "girls_in_STEM", "low_income_schools", "open_science", "reproducibility"),
+  Project3 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "climate_change", "physiology", "Crassostrea_gigas", "tetraploid", "triploid", "temperature", "salinity", "low_pH", "oxygen_consumption", "shell_morphology", "survival_rates", "proteomics", "DNA_methylation", "environmental_conditions"),
+  Project4 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "genomics", "Olympia_oyster", "Puget_Sound", "restoration", "protection", "environmental_change", "ecological_interactions", "population_structure", "genetic_variation", "RAD-Seq", "BS-Seq", "web-based_platform", "discovery", "collaboration")
+)
+
+# Plot the Venn diagram with keywords
+venn(project_themes, ilab = TRUE, zcolor = "style", cexil = 0.6)
+
+```
+
+```{r}
+# Install and load the necessary packages
+install.packages("igraph")
+library(igraph)
+
+# Create a list containing 20 themes or keywords for each project
+project_themes <- list(
+  Project1 = c("marine", "corals", "epigenetics", "environment", "stressors", "inheritance", "reef_building", "physiology", "ecology", "evolution", "symbiosis", "education", "energetics", "metabolic", "phenotype", "E5_platform", "STEM", "open_science", "quantitative_approaches", "research_reproducibility"),
+  Project2 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "aquaculture", "DNA_methylation", "Crassostrea_virginica", "ocean_acidification", "intergenerational_response", "genomics", "adaptation", "bioinformatics", "biogeochemistry", "E2O", "girls_in_STEM", "low_income_schools", "open_science", "reproducibility"),
+  Project3 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "climate_change", "physiology", "Crassostrea_gigas", "tetraploid", "triploid", "temperature", "salinity", "low_pH", "oxygen_consumption", "shell_morphology", "survival_rates", "proteomics", "DNA_methylation", "environmental_conditions"),
+  Project4 = c("marine", "oysters", "epigenetics", "environment", "stressors", "inheritance", "genomics", "Olympia_oyster", "Puget_Sound", "restoration", "protection", "environmental_change", "ecological_interactions", "population_structure", "genetic_variation", "RAD-Seq", "BS-Seq", "web-based_platform", "discovery", "collaboration")
+)
+
+# Create edges between project nodes and theme nodes
+edges <- do.call(rbind, lapply(names(project_themes), function(project) {
+  cbind(project, project_themes[[project]])
+}))
+
+# Create the graph object
+g <- graph_from_edgelist(edges)
+
+# Set vertex attributes
+V(g)$type <- bipartite_mapping(g)$type
+V(g)$color <- ifelse(V(g)$type, "lightblue", "gold")
+V(g)$label.color <- "black"
+V(g)$label.font <- 2
+V(g)$label.cex <- 0.8
+V(g)$size <- ifelse(V(g)$type, 15, 5)
+
+# Set edge attributes
+E(g)$color <- "gray"
+
+# Plot the network diagram
+plot(g, layout = layout_as_bipartite, vertex.label.dist = 1, main = "Project Keyword Network Diagram")
+
+```

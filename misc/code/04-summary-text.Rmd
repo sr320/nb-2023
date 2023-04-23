@@ -1,0 +1,41 @@
+---
+title: "summary"
+output: html_document
+date: "2023-04-22"
+---
+
+```{r}
+# Load required libraries
+install.packages(c("tm", "SnowballC"))
+library(tm)
+library(SnowballC)
+
+# Project summary
+summary_text <- "Readying sustainable aquaculture for a changing ocean: uncovering the mechanisms associated with intergenerational carryover effects to enhance bivalve resilience to acidification. The proposed effort will identify how parental environmental conditions drive shellfish offspring performance, including describing underlying mechanisms. To do this we will examine intergenerational effects of ocean acidification in the Manila clam, a globally cultured species that will serve as a model for marine bivalves and related taxa. By comprehensively investigating gamete status following parental pCO2 exposures, this project will uncover the non-genetic carriers of information across generations while simultaneously identifying factors that predict high performance of larvae in acidified conditions. By leveraging and working closely on a complementary NOAA supported project, we are able to expand our traditional research objectives with an objective centered around increasing diversity and inclusion in marine sciences. The specific objectives include 1) Characterize carryover performance in clams in response to ocean acidification, 2) Identify maternal macromolecule contribution of intergenerational plasticity and carryover performance, 3) Identify paternal epigenetic signatures associated with intergenerational plasticity and carryover performance, and 4) Develop inclusive educational experiences and products for underserved groups. The proposed work supports Washington Sea Grants commitment to cultivating partnerships and practicing a commitment to diversity, equity and inclusion. The objectives directly align with the critical program areas of Sustainable Fisheries and Aquaculture, Ocean Literacy and Workforce Development, and Healthy Coastal Ecosystems."
+
+# Create a Corpus
+summary_corpus <- Corpus(VectorSource(summary_text))
+
+# Preprocessing
+summary_corpus <- tm_map(summary_corpus, content_transformer(tolower))
+summary_corpus <- tm_map(summary_corpus, removeNumbers)
+summary_corpus <- tm_map(summary_corpus, removePunctuation)
+summary_corpus <- tm_map(summary_corpus, stripWhitespace)
+summary_corpus <- tm_map(summary_corpus, removeWords, stopwords("english"))
+summary_corpus <- tm_map(summary_corpus, stemDocument)
+
+# Create a Term Document Matrix
+tdm <- TermDocumentMatrix(summary_corpus)
+
+# Find keyword frequency
+term_freq <- row_sums(as.matrix(tdm))
+term_freq <- sort(term_freq, decreasing = TRUE)
+
+# Select top 15 keywords
+keywords <- names(term_freq[1:15])
+
+# Print the keywords
+print(keywords)
+
+```
+
