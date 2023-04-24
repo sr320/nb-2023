@@ -140,6 +140,13 @@ Based on their research, here are four new areas to pursue in the next five year
 
 2.  Assess the long-term consequences of environmental stressors on marine invertebrate populations, with a particular focus on how these stressors may impact genetic diversity, population connectivity, and resilience to future environmental changes.
 
-3.  Examine the potential for assisted evolution or selective breeding in marine invertebrates to enhance their resilience to climate change and other environmental stressors, and evaluate the feasibility of applying these techniques in conservation and aquaculture settings.
+## ChatGPT
 
+3.  Examine the potential for assisted evolution or selective breeding in marine invertebrates to enhance their resilience to climate change and other environmental stressors, and evaluate the feasibility of applying these techniques in conservation and aquaculture settings.
 4.  Evaluate the microbiomes of marine invertebrates in relation to environmental stressors, exploring how shifts in microbial community composition and function may influence the host's response to stress and overall health.
+
+# Future Plans
+
+## Directions
+
+Continue improving efficiency in integrating research activities. Considering things such as standardizing file names, directories, notebook posts

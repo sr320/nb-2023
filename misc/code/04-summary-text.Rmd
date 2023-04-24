@@ -39,3 +39,116 @@ print(keywords)
 
 ```
 
+### Relationship
+
+```{r}
+# Install necessary packages
+#install.packages("tidyverse")
+#install.packages("tidytext")
+
+# Load packages
+library(tidyverse)
+library(tidytext)
+
+# Create a data frame with the project summaries
+project_summaries <- tibble(
+  project_title = c("Epigenetics 2", "Ocean Acidification", "Oyster Stressors", "Oyster Restoration"),
+  summary = c("Summary: Living organisms may acclimate to environmental changes through epigenetic modifications to DNA, which alter the way genetic instructions are interpreted without altering the DNA code itself. While these modifications to organismal phenotype or function can be reversible, some of them may be inherited by offspring, potentially producing multiple, heritable outcomes from a single genome and affecting ecological and evolutionary outcomes. This project uses symbiotic, metabolically complex reef building corals as a model system to test the connections between physiological, epigenetic, and metabolic states, and predict how population and community dynamics are influenced by epigenetically-modulated phenotypes. This work will advance biological knowledge by delineating fundamental links (Rules of Life) between ubiquitous organismal energetic processes, epigenetics, and eco-evolutionary outcomes. The Broader Impacts activities parallel the project’s integrative approach, linking insights from Environment x Energetics x Epigenetics x Ecology for Education into an E5 platform. The E5 platform will provide i) early career STEM training, ii) local and global community education, and iii) educational resources for open science, quantitative approaches, and research reproducibility. Further, this E5 platform will train and inform the next generation of diverse scientists and public by combining local and global initiatives focusing on groups underrepresented in STEM.
+
+This project examines how nutrient metabolism in the mitochondria generates cofactors and energy that will instruct the epigenetic machinery in the cell nucleus to modulate genome function to appropriately respond to environmental conditions. Environmentally-responsive metabolic function and energetic-epigenetic linkages act as drivers of complex emergent phenotypes. To elucidate relationships that are the basis for Rules of Life with respect to epigenetics, this project will use integrative experimental and modeling approaches focused on reef building corals to: 1) link nutritionally-provisioned metabolites with epigenetic and organismal state through seasonal sampling across environmental gradients; 2) expand current Dynamic Energy Budget (DEB) models for symbiotic organisms to further integrate critical facets of nutritional symbiosis and calcification; 3) experimentally modulate metabolic and therefore epigenetic states through repeated exposure to increased temperature and nutrients, to test intra- and trans-generational epigenetic inheritance; 4) use DEB theory to identify shifts in energetics associated with epigenetic modulation, and link these sub-organismal processes to higher levels of organization; and 5) integrate findings into a generalizable, predictive eco-evolutionary model that links nutritional interactions, metabolic states, and subsequent epigenetic effects to the timescales regulating organismal processes and eco-evolutionary outcomes. This effort will provide characterization of environmental epigenetic phenomena in ecosystem-engineering marine invertebrates. This characterization includes determining the mechanisms and the degree of epigenetic ‘memory’ both within and across generations. By including information on environmental legacies, propagated by epigenetics, this project will advance both organismal and population-based models and improve capacity to predict responses to acute and chronic environmental signals.",
+              "Marine ecosystems worldwide are threatened by ocean acidification, a process caused by the unprecedented rate at which carbon dioxide is increasing in the atmosphere. Since ocean change is predicted to be rapid, extreme, and widespread, marine species may face an “adapt-or-die” scenario. However, modifications to the DNA sequence may be induced in response to a stress like ocean acidification and then inherited. Such “epigenetic” modifications may hold the key to population viability under global climate change, but they have been understudied. The aim of this research is to characterize the role of DNA methylation, a heritable epigenetic system, in the response of Eastern oysters (Crassostrea virginica) to ocean acidification. The intellectual merit lies in the integrative approach, which will characterize the role of DNA methylation in the intergenerational response of oysters to ocean acidification. These interdisciplinary data, spanning from molecular to organismal levels, will provide insight into mechanisms that underlie the capacity of marine invertebrates to respond to ocean acidification and lay the foundation for future transgenerational studies. Ocean acidification currently threatens marine species worldwide and has already caused significant losses in aquaculture, especially in Crassostrea species. This research has broader impacts for breeding, aquaculture, and the economy. Under the investigators’ “Epigenetics to Ocean” (E2O) training program, the investigators will build STEM talent in bioinformatics and biogeochemistry, expose girls in low-income school districts to careers in genomics, and advance the field through open science and reproducibility.",
+              "Basic physiological studies will be conducted with diploid, triploid and tetraploid larvae produced from the same MBP lines to determine tolerances to three environmental factors which are being altered by climate change. These include temperature, salinity and low pH, individually and in combination. Differential response will be assessed by changes in oxygen consumption rates, shell morphology and survival rates. Cohorts of diploid, triploid and tetraploid juvenile oysters will be grown out in several locations in the two States and closely monitored for survival and performance (e.g. growth rate, condition index). Shotgun proteomics will be used to permit efficient comparison of protein expression patterns on the entire genome. Changes in global DNA methylation will also be examined to assess the role of the environment in influencing the epigenetic landscape, and how this translates to phenotype. A subset of oysters from the first experiments will be selected for spawning larvae that can then be similarly assessed to determine how parental environmental conditions affect larval performance.",
+              " There is a significant gap in our fundamental understanding of this species’ resilience in the face of environmental change, ecological interactions, and population structure. This information is critical to local restoration efforts and to predicting how molluscs will adapt to long-term environmental change. There is recent evidence that oysters have the capacity to respond to environmental change at a rate beyond what would be predicted by genetic variation alone. The overall objective of this research is to produce genomic resources and capacity to understand the response of Olympia oysters to environmental change. Specifically, a draft genome assembly for the Olympia oyster will be produced and used to understand how responses of the Olympia oyster to environmental changes are inherited (i.e., genetic or epigenetic) using restriction site associated DNA sequencing (RAD-Seq) and bisulfite sequencing (BS-Seq). A web-based platform will be developed based on these resources that will be used for discovery and further collaboration.")
+)
+
+# Tokenize the text and remove common stop words
+tidy_summaries <- project_summaries %>%
+  unnest_tokens(word, summary) %>%
+  anti_join(stop_words)
+
+# Calculate word frequencies
+word_frequencies <- tidy_summaries %>%
+  count(project_title, word, sort = TRUE) %>%
+  group_by(project_title) %>%
+  top_n(10, wt = n)
+
+# Create a bar plot to show the most common words in each project summary
+ggplot(word_frequencies, aes(x = reorder_within(word, n, project_title), y = n, fill = project_title)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~project_title, scales = "free_y") +
+  coord_flip() +
+  scale_x_reordered() +
+  labs(x = "Words", y = "Frequency", title = "Word Frequency in Project Summaries")
+
+
+
+# Calculate total word frequencies
+total_word_frequencies <- tidy_summaries %>%
+  count(word, sort = TRUE)
+
+# Filter words that appear in all project summaries
+common_words <- tidy_summaries %>%
+  count(project_title, word) %>%
+  group_by(word) %>%
+  summarize(num_projects = n()) %>%
+  filter(num_projects == length(unique(project_summaries$project_title))) %>%
+  inner_join(total_word_frequencies, by = "word")
+
+# Show top 10 common words by frequency
+top_common_words <- common_words %>%
+  arrange(desc(n)) %>%
+  head(10)
+
+# Create a bar plot to show the most common words across all project summaries
+ggplot(top_common_words, aes(x = reorder(word, n), y = n, fill = word)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Words", y = "Frequency", title = "Top 10 Common Words Across Project Summaries")
+
+```
+
+
+
+
+```{r}
+# Install necessary packages
+#install.packages("igraph")
+#install.packages("ggraph")
+# Install necessary package
+install.packages("widyr")
+
+# Load package
+library(widyr)
+
+
+# Load packages
+library(igraph)
+library(ggraph)
+
+# Set the minimum co-occurrence threshold
+min_cooccurrence <- 2
+
+# Create a word co-occurrence matrix
+cooccurrence_matrix <- tidy_summaries %>%
+  group_by(project_title) %>%
+  pairwise_count(word, word, sort = TRUE) %>%
+  filter(n >= min_cooccurrence)
+
+# Create an igraph object from the co-occurrence matrix
+word_network <- graph_from_data_frame(cooccurrence_matrix, directed = FALSE)
+
+# Set vertex and edge attributes
+V(word_network)$degree <- degree(word_network)
+E(word_network)$width <- E(word_network)$n / 2
+
+# Plot the network graph
+ggraph(word_network, layout = "fr") +
+  geom_edge_link(aes(width = width), alpha = 0.5) +
+  geom_node_point(aes(size = degree), color = "darkblue", alpha = 0.5) +
+  geom_node_text(aes(label = name), repel = TRUE, size = 3) +
+  theme_void() +
+  labs(title = "Network Graph of Co-occurring Words in Project Summaries")
+
+```
+
+
