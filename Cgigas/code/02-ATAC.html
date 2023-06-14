@@ -162,7 +162,9 @@ mSTARTinput.1nt.pos.bw
 readme.txt</code></pre>
 </div>
 </div>
-<p>There is an IGV session file…</p>
+</section>
+<section id="there-is-an-igv-session-file" class="level1">
+<h1>There is an IGV session file…</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://gannet.fish.washington.edu/seashell/snaps/Monosnap_IGV_-_Session_Userssr320DocumentsGitHubnb-2023Cgigasdataatac-plus20200526_Cgigas_epi_compare.xml_2023-06-13_21-27-28.png" class="img-fluid figure-img"></p>
@@ -194,8 +196,88 @@ readme.txt</code></pre>
 ../data/atac-plus/5GRO.tss.txt.bed</code></pre>
 </div>
 </div>
+</section>
+<section id="gro" class="level1">
+<h1>5GRO</h1>
+<p>5’GRO stands for 5’ Global Run-On sequencing. This is a technique used in genomics and transcriptomics to map the 5’ ends of nascent RNAs.</p>
+<p>The technique is used to identify the position and orientation of transcriptionally engaged RNA polymerases genome-wide, and to detect primary transcription initiation sites. It is often used in studies of transcription regulation, and can provide insight into the transcription dynamics of a given cell or tissue type.</p>
+<p>The method is similar to Global Run-On Sequencing (GRO-seq), but with a focus on the 5’ ends of transcripts. By sequencing the 5’ ends of RNAs, 5’GRO-seq can provide a high-resolution map of transcription start sites across the genome.</p>
+</section>
+<section id="csrna-seq" class="level1">
+<h1>csRNA-seq</h1>
+<p>Capped small RNA-seq (csRNA-seq) accurately maps RNA polymerase II transcription start sites (TSSs) from any tissue or eukaryotic organism where RNA can be extracted. csRNA-seq is an adaptation of Start-seq (Nechaev et al., Scruggs et al.) and small RNA sequencing (Lister et al., Gu et al.). The method captures small (&lt;60 nt), 5’-capped RNAs which associate with newly initiated RNAs, providing data similar to Start-seq or 5’GROseq/GROcap(Kruesi et al., Lam et al.). However, csRNA-seq works with total RNA, eliminating the requirement of nuclei isolation or run-on. csRNA-seq is thus widely applicable and facilitates accurate maps of TSSs of stable (i.e.&nbsp;mRNAs, ncRNAs) and unstable transcripts (i.e.&nbsp;enhancer RNAs, pre-miRNAs, divergent transcripts, antisense transcripts) from fresh, frozen or archived tissues or samples - basically any material where quality RNA can be isolated from.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ../data/atac-plus/cs<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../data/atac-plus/csRNA-JHS670-170224.1nt.neg.bw
+../data/atac-plus/csRNA-JHS670-170224.1nt.pos.bw
+../data/atac-plus/csRNA-JHS671-170228.1nt.neg.bw
+../data/atac-plus/csRNA-JHS671-170228.1nt.pos.bw
+../data/atac-plus/csRNA-JHS817-170322.1nt.neg.bw
+../data/atac-plus/csRNA-JHS817-170322.1nt.pos.bw
+../data/atac-plus/csRNA-JHS818-170322.1nt.neg.bw
+../data/atac-plus/csRNA-JHS818-170322.1nt.pos.bw
+../data/atac-plus/csRNA-comb.1nt.neg.bw
+../data/atac-plus/csRNA-comb.1nt.pos.bw
+../data/atac-plus/csRNA.tss.txt.bed
+../data/atac-plus/csRNAinput-JHS718-170228.1nt.neg.bw
+../data/atac-plus/csRNAinput-JHS718-170228.1nt.pos.bw
+../data/atac-plus/csRNAinput-JHS719-170228.1nt.neg.bw
+../data/atac-plus/csRNAinput-JHS719-170228.1nt.pos.bw
+../data/atac-plus/csRNAinput-JHS796-170323.1nt.neg.bw
+../data/atac-plus/csRNAinput-JHS796-170323.1nt.pos.bw
+../data/atac-plus/csRNAinput-JHS797-170323.1nt.neg.bw
+../data/atac-plus/csRNAinput-JHS797-170323.1nt.pos.bw
+../data/atac-plus/csRNAinput-comb.1nt.neg.bw
+../data/atac-plus/csRNAinput-comb.1nt.pos.bw</code></pre>
+</div>
+</div>
+</section>
+<section id="atac" class="level1">
+<h1>ATAC</h1>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ../data/atac-plus/ATAC<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../data/atac-plus/ATAC-JHS696-170217.cov.bw
+../data/atac-plus/ATAC-JHS697-170223.cov.bw
+../data/atac-plus/ATAC-JHS698-170217.cov.bw
+../data/atac-plus/ATAC-JHS699-170223.cov.bw
+../data/atac-plus/ATAC-comb.cov.bw
+../data/atac-plus/ATAC.cov.bw
+../data/atac-plus/ATAC.peaks.bed
+../data/atac-plus/ATAC.peaks.txt.bed</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> ../data/atac-plus/ATAC<span class="pp">*</span>bed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>==&gt; ../data/atac-plus/ATAC.peaks.bed &lt;==
+scaffold962 687697  687870  scaffold962-461 1   +
+scaffold980 288225  288398  scaffold980-224 1   +
+scaffold1173    29013   29186   scaffold1173-19 1   +
+scaffold1578    16001   16174   scaffold1578-50 1   +
+scaffold1753    106992  107165  scaffold1753-39 1   +
+scaffold180 35570   35743   scaffold180-18  1   +
+scaffold1842    63318   63491   scaffold1842-24 1   +
+scaffold62  863 1036    scaffold62-79   1   +
+scaffold977 382155  382328  scaffold977-115 1   +
+scaffold22  693214  693387  scaffold22-684  1   +
+
+==&gt; ../data/atac-plus/ATAC.peaks.txt.bed &lt;==
+scaffold32  175640  175841  scaffold32-21   1   +   175640  175841  0,0,255
+scaffold37900   25359   25560   scaffold37900-3 1   +   25359   25560   0,0,255
+scaffold588 390042  390243  scaffold588-80  1   +   390042  390243  0,0,255
+scaffold632 230369  230570  scaffold632-79  1   +   230369  230570  0,0,255
+scaffold976 46879   47080   scaffold976-19  1   +   46879   47080   0,0,255
+C26156  2808    3009    C26156-2    1   +   2808    3009    0,0,255
+scaffold395 317495  317696  scaffold395-57  1   +   317495  317696  0,0,255
+scaffold41806   2244    2445    scaffold41806-29    1   +   2244    2445    0,0,255
+scaffold610 556440  556641  scaffold610-95  1   +   556440  556641  0,0,255
+scaffold65  104601  104802  scaffold65-5    1   +   104601  104802  0,0,255</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>here a quick warning: the data passed QC. But was processed in bulk with 50 species. A careful evaluation from an oyster expert may be getting even better TSS calls etc out of the data as Chris Benner (who did this analysis) used a script to set thresholds etc.</p>
 <p>You find data for two individuals. for which i differentially took tissue from the branchies and the “muscle/stick” aka Coeur. in the csRNA-seq data, Oyster_8 and Oyster_9 is the Coeur. Again, my apologies for the sloppy labeling but I did about 50 species back then and we went through different “automated” systems… aka codes make sense to us but noone else.</p>

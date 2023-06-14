@@ -2,7 +2,7 @@
 title: "ATAC"
 format: gfm
 editor: visual
-date: "`r format(Sys.time(), '%d %B, %Y')`"  
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   html_document:
     theme: readable
@@ -12,7 +12,10 @@ output:
     number_sections: true
     code_folding: show
     code_download: true
+  pdf_document: default
+  md_document: default
 ---
+
 
 
 ```{r setup, include=FALSE}
