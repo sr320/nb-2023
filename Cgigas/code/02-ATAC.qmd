@@ -2,6 +2,16 @@
 title: "ATAC"
 format: gfm
 editor: visual
+date: "`r format(Sys.time(), '%d %B, %Y')`"  
+output: 
+  html_document:
+    theme: readable
+    highlight: zenburn
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
 ---
 
 
@@ -20,7 +30,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Background
+# Background
 
 Data here: https://gannet.fish.washington.edu/metacarcinus/Cgigas/shelly/
 
@@ -35,7 +45,33 @@ wget -r \
 https://gannet.fish.washington.edu/metacarcinus/Cgigas/shelly/
 ```
 
+```{r engine='bash', eval=TRUE}
+ls ../data/atac-plus/ | sort
+```  
 
+# There is an IGV session file...
+
+![igv](http://gannet.fish.washington.edu/seashell/snaps/Monosnap_IGV_-_Session_Userssr320DocumentsGitHubnb-2023Cgigasdataatac-plus20200526_Cgigas_epi_compare.xml_2023-06-13_21-27-28.png)
+
+The types of these files can be inferred based on their extensions:
+
+1. `.bw`: These are BigWig files, a binary file format used to store genomic data (like scores for each feature) that can be densely packed into an interval tree for rapid access. BigWig files are often used for read coverage of sequence alignment files, among other things.
+
+2. `.bed`: BED files are a file format used to store genomic regions as coordinates and associated annotations. The format is often used in genome-sequencing projects.
+
+3. `.txt`: This is a standard text file that contains human-readable characters. Text files can be opened by a variety of text editors and can contain a wide range of information.
+
+4. `.xml`: XML files are a type of structured document format that is used to store data. It is similar to HTML but does not have predefined tags. Instead, the user defines the tags to create a document structure that suits their needs.
+
+5. `.gtf`: This is a GTF (Gene Transfer Format) file, which is a refinement of GFF (General Feature Format). GTF files are used to hold information about gene structure and are often used in bioinformatics for genome annotation.
+
+6. `.gtf.idx`: This is likely an index file related to the GTF file, used to make access to the data within the GTF file faster.
+
+8. `readme.txt`: This is typically a plain text file containing information about other files in a directory or archive, often used to provide documentation for a project or software.
+
+Most of these files are commonly used in the field of genomics and bioinformatics. For instance, the BigWig and BED files are commonly used to visualize genomic data in genome browsers. The GTF files are used to hold information about gene structures.
+
+---
 
 Goal is to intersectBED these files with DML lists and understand how methylation is impacted by TSS accessibility, etc.
 
@@ -48,7 +84,36 @@ http://homer.ucsd.edu/homer/ngs/csRNAseq/index.html is the tutorial
 ```{r engine='bash', eval=TRUE}
 ls ../data/atac-plus/5*
 ```  
+# 5GRO 
 
+5'GRO stands for 5' Global Run-On sequencing. This is a technique used in genomics and transcriptomics to map the 5' ends of nascent RNAs.
+
+The technique is used to identify the position and orientation of transcriptionally engaged RNA polymerases genome-wide, and to detect primary transcription initiation sites. It is often used in studies of transcription regulation, and can provide insight into the transcription dynamics of a given cell or tissue type.
+
+The method is similar to Global Run-On Sequencing (GRO-seq), but with a focus on the 5' ends of transcripts. By sequencing the 5' ends of RNAs, 5'GRO-seq can provide a high-resolution map of transcription start sites across the genome.
+
+
+# csRNA-seq
+
+Capped small RNA-seq (csRNA-seq) accurately maps RNA polymerase II transcription start sites (TSSs) from any tissue or eukaryotic organism where RNA can be extracted. csRNA-seq is an adaptation of Start-seq (Nechaev et al., Scruggs et al.) and small RNA sequencing (Lister et al., Gu et al.). The method captures small (<60 nt), 5'-capped RNAs which associate with newly initiated RNAs, providing data similar to Start-seq or 5'GROseq/GROcap(Kruesi et al., Lam et al.). However, csRNA-seq works with total RNA, eliminating the requirement of nuclei isolation or run-on. csRNA-seq is thus widely applicable and facilitates accurate maps of TSSs of stable (i.e. mRNAs, ncRNAs) and unstable transcripts (i.e. enhancer RNAs, pre-miRNAs, divergent transcripts, antisense transcripts) from fresh, frozen or archived tissues or samples - basically any material where quality RNA can be isolated from.
+
+```{r engine='bash', eval=TRUE}
+ls ../data/atac-plus/cs*
+```  
+
+
+# ATAC 
+
+```{r engine='bash', eval=TRUE}
+ls ../data/atac-plus/ATAC*
+```  
+```{r engine='bash', eval=TRUE}
+tail ../data/atac-plus/ATAC*bed
+```
+
+```{r engine='bash', eval=TRUE}
+
+```  
 
 
 
