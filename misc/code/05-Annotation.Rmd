@@ -1,6 +1,6 @@
 ---
 title: "Navigtating Annotation"
-output: md_document
+output: html_document
 date: "2023-07-10"
 ---
 
