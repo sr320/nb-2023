@@ -38,6 +38,6 @@ budgets <- read.csv("../data/budget-map.csv")
 ```
 
 ```{r map, eval=TRUE}
-datatable(budgets, options = list(scrollX = TRUE, scrollY = "400px", scrollCollapse = FALSE, paging = FALSE))
+datatable(budgets, options = list(scrollX = TRUE, scrollY = "400px", scrollCollapse = TRUE, paging = FALSE))
 ```
 
