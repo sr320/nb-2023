@@ -10,7 +10,6 @@ library(tidyverse)
 ```
 
 
-# Navigating Annotation
 
 The following is a stepwise example or annotation of a gene set using UniProt::Swiss-Prot (reviewed) such that Gene Ontology terms can be associated with each gene.
 
